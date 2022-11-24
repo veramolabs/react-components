@@ -4,7 +4,9 @@ on:
     branches:
       - "main"
 jobs:
-  publish-storybook: 
+  publish-storybook:
+    permissions:
+      contents: write
     env:
       GH_TOKEN: ${{secrets.GH_TOKEN}}
       GH_USER: ${{secrets.GH_USER}}
@@ -28,7 +30,7 @@ jobs:
           npm run build-storybook
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+        uses: JamesIves/github-pages-deploy-action@4
         with:
           branch: gh-pages
           folder: storybook-static # output folder from `npm run build-storybook`
