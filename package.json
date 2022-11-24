@@ -2,6 +2,9 @@
   "name": "@veramo-community/react-components",
   "version": "1.0.0",
   "description": "React components for rendering verifiable credentials and other related data",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
