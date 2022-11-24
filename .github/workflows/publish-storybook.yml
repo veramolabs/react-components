@@ -4,11 +4,7 @@ on:
     branches:
       - "main"
 jobs:
-  publish-storybook:
-    env:
-      GH_TOKEN: ${{secrets.GH_TOKEN}}
-      GH_USER: ${{secrets.GH_USER}}
-      GH_EMAIL: ${{secrets.GH_EMAIL}}  
+  publish-storybook: 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,4 +13,6 @@ jobs:
           token: ${{secrets.GH_TOKEN}}      
       - run: npm ci
       - name: Deploy storybook to GitHub Pages
-        run: npm run deploy-storybook -- --ci --host-token-env-variable=GH_TOKEN
+        run: npm run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
+        env:
+          GITHUB_TOKEN: veramolabs:${{ secrets.GH_TOKEN }}      
