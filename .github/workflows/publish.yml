@@ -4,7 +4,7 @@ on:
     branches:
       - "main"
 jobs:
-  publish-storybook:
+  test-and-publish:
     permissions:
       contents: write
     env:
@@ -21,7 +21,7 @@ jobs:
 
       - name: 'setup git coordinates'
         run: |
-          git remote set-url origin https://veramolabs:$GH_TOKEN@github.com/veramolabs/agent-explorer.git
+          git remote set-url origin https://veramolabs:$GH_TOKEN@github.com/veramolabs/react-components.git
           git config user.name $GH_USER
           git config user.email $GH_EMAIL
 
@@ -29,7 +29,7 @@ jobs:
       - run: npm test
       - run: npm run build-storybook
 
-      - name: Deploy
+      - name: deploy storybook
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
@@ -43,4 +43,4 @@ jobs:
 
       - name: 'publish'
         if: github.ref == 'refs/heads/main'
-        run: yarn release
+        run: npm run release
