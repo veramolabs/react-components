@@ -5,11 +5,11 @@ on:
       - "main"
 jobs:
   publish-storybook:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: npm ci
       - name: Deploy storybook to GitHub Pages
-        run: npm run deploy-storybook -- --ci
+        run: npm run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}      
+          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GH_TOKEN }}      
