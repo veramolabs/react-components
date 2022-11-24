@@ -8,8 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{secrets.GH_TOKEN}}      
       - run: npm ci
       - name: Deploy storybook to GitHub Pages
-        run: npm run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
+        run: npm run deploy-storybook -- --ci --host-token-env-variable=GH_TOKEN
         env:
-          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GH_TOKEN }}      
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GH_TOKEN }}      
