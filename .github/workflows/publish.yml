@@ -19,21 +19,14 @@ jobs:
           fetch-depth: 0
           token: ${{secrets.GH_TOKEN}}      
 
+      - run: npm ci
+      - run: npm test
+
       - name: 'setup git coordinates'
         run: |
           git remote set-url origin https://$GH_TOKEN@github.com/veramolabs/react-components.git
           git config user.name $GH_USER
           git config user.email $GH_EMAIL
-
-      - run: npm ci
-      - run: npm test
-      - run: npm run build-storybook
-
-      - name: deploy storybook
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: storybook-static 
 
       - name: 'setup npm registry'
         run: |
@@ -44,3 +37,28 @@ jobs:
       - name: 'publish'
         if: github.ref == 'refs/heads/main'
         run: npm run release
+
+  test-and-publish-storybook:
+    permissions:
+      contents: write
+    env:
+      NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+      GH_TOKEN: veramolabs:${{secrets.GH_TOKEN}}
+      GH_USER: ${{secrets.GH_USER}}
+      GH_EMAIL: ${{secrets.GH_EMAIL}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{secrets.GH_TOKEN}}      
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run build-storybook
+
+      - name: deploy storybook
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: storybook-static 
