@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import KudosCredential from "../../../test-vectors/kudos-credential"
-import ProfileCredential from "../../../test-vectors/profile-credential"
+import KudosCredential from "../../test-vectors/kudos-credential"
+import ProfileCredential from "../../test-vectors/profile-credential"
 
 import VerifiableCredential from "./VerifiableCredential";
 

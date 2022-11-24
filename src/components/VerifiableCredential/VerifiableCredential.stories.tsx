@@ -1,8 +1,8 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import VerifiableCredential from "./VerifiableCredential";
-import KudosCredential from "../../../test-vectors/kudos-credential"
-import ProfileCredential from "../../../test-vectors/profile-credential"
+import KudosCredential from "../../test-vectors/kudos-credential"
+import ProfileCredential from "../../test-vectors/profile-credential"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
