@@ -1,6 +1,8 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import VerifiableCredential from "./VerifiableCredential";
+import KudosCredential from "../../../test-vectors/kudos-credential"
+import ProfileCredential from "../../../test-vectors/profile-credential"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -11,13 +13,14 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof VerifiableCredential> = (args) => <VerifiableCredential {...args} />;
 
-export const Detailed = Template.bind({});
+export const Kudos = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Detailed.args = {
-  isConstrained: false,
+Kudos.args = {
+  credential: KudosCredential,
 };
 
-export const ListItem = Template.bind({});
-ListItem.args = {
-  isConstrained: true,
+export const Profile = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Profile.args = {
+  credential: ProfileCredential,
 };
