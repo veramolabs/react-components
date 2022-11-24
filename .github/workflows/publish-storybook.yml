@@ -11,8 +11,14 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{secrets.GH_TOKEN}}      
-      - run: npm ci
-      - name: Deploy storybook to GitHub Pages
-        run: npm run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
-        env:
-          GITHUB_TOKEN: veramolabs:${{ secrets.GH_TOKEN }}      
+
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build-storybook
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          branch: gh-pages
+          folder: storybook-static # output folder from `npm run build-storybook`
