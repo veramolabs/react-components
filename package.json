@@ -1,7 +1,7 @@
 {
   "name": "@veramo-community/react-components",
   "version": "1.0.0",
-  "description": "React components for rendering verifiable data",
+  "description": "React components for rendering verifiable credentials and other related data",
   "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -14,7 +14,7 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy-storybook": "storybook-to-ghpages"
+    "release": "semantic-release"
   },
   "keywords": [
     "react",
@@ -34,6 +34,10 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-terser": "^0.1.0",
     "@rollup/plugin-typescript": "^9.0.2",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^9.0.1",
+    "@semantic-release/release-notes-generator": "^10.0.3",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-interactions": "^6.5.13",
@@ -56,10 +60,32 @@
     "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "semantic-release": "^19.0.5",
     "tslib": "^2.4.1",
     "typescript": "^4.7.4"
   },
   "peerDependencies": {
     "react": "^17.0.2"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "ci": true,
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json"
+          ],
+          "message": "chore(release): :rocket: New version ${nextRelease.version} [skip ci] \n\n${nextRelease.notes}"
+        }
+      ],
+      "@semantic-release/github"
+    ]
   }
 }

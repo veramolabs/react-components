@@ -1,4 +1,4 @@
-name: Publish storybook to ghpages
+name: Publish npm package and Storybook to gh-pages
 on:
   push:
     branches:
@@ -8,6 +8,7 @@ jobs:
     permissions:
       contents: write
     env:
+      NPM_TOKEN: ${{secrets.NPM_TOKEN}}
       GH_TOKEN: ${{secrets.GH_TOKEN}}
       GH_USER: ${{secrets.GH_USER}}
       GH_EMAIL: ${{secrets.GH_EMAIL}}
@@ -24,13 +25,22 @@ jobs:
           git config user.name $GH_USER
           git config user.email $GH_EMAIL
 
-      - name: Install and Build
-        run: |
-          npm ci
-          npm run build-storybook
+      - run: npm ci
+      - run: npm test
+      - run: npm run build-storybook
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: storybook-static # output folder from `npm run build-storybook`
+          folder: storybook-static 
+
+      - name: 'setup npm registry'
+        run: |
+          echo "registry=https://registry.npmjs.org/" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          npm whoami
+
+      - name: 'publish'
+        if: github.ref == 'refs/heads/main'
+        run: yarn release
