@@ -1,0 +1,14 @@
+name: Publish storybook to ghpages
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  publish-storybook:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy storybook to GitHub Pages
+        run: npm run deploy-storybook -- --ci
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}      
