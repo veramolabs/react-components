@@ -71,7 +71,6 @@
   "peerDependencies": {
     "react": "^17.0.2"
   },
-  "repository": "git@github.com:veramolabs/react-components.git",
   "release": {
     "branches": [
       "main"
@@ -89,7 +88,8 @@
           ],
           "message": "chore(release): :rocket: New version ${nextRelease.version} [skip ci] \n\n${nextRelease.notes}"
         }
-      ]
+      ],
+      "@semantic-release/github"
     ]
   }
 }
