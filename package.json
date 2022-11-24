@@ -70,6 +70,10 @@
   "peerDependencies": {
     "react": "^17.0.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/veramolabs/react-components.git"
+  },
   "release": {
     "branches": [
       "main"
