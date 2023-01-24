@@ -1,6 +1,6 @@
 {
   "name": "@veramo-community/react-components",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "React components for rendering verifiable credentials and other related data",
   "publishConfig": {
     "access": "public"
