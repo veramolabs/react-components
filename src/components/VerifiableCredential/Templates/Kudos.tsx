@@ -21,7 +21,7 @@ export const Kudos = ({ credential } : { credential: VerifiableCredential }) => 
       </div>
     </div>
     <div className="embed-thumbnail">
-      <div className="avatar-large"> <img src={credential.credentialSubject.avatar} /> </div>
+      <div className={`avatar-large ${!credential.credentialSubject.avatar || credential.credentialSubject.avatar === '' ? 'hidden' : ''}`}> <img src={credential.credentialSubject.avatar} /> </div>
     </div>
   </div>;
 };
