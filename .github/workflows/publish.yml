@@ -13,19 +13,25 @@ jobs:
       GH_EMAIL: ${{secrets.GH_EMAIL}}
     runs-on: ubuntu-latest
     steps:
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: 18
+          cache: 'pnpm'
 
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
           token: ${{secrets.GH_TOKEN}}      
 
-      - run: npm ci
-      - run: npm test
-      - run: npm run rollup
+      - run: pnpm ci
+      - run: pnpm test
+      - run: pnpm run rollup
 
       - name: 'setup git coordinates'
         run: |
@@ -41,7 +47,7 @@ jobs:
 
       - name: 'publish'
         if: github.ref == 'refs/heads/main'
-        run: npm run release
+        run: pnpm release
 
   test-and-publish-storybook:
     permissions:
@@ -53,14 +59,24 @@ jobs:
       GH_EMAIL: ${{secrets.GH_EMAIL}}
     runs-on: ubuntu-latest
     steps:
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          token: ${{secrets.GH_TOKEN}}      
+          token: ${{secrets.GH_TOKEN}}    
 
-      - run: npm ci
-      - run: npm test
-      - run: npm run build-storybook
+      - run: pnpm ci
+      - run: pnpm test
+      - run: pnpm run build-storybook
 
       - name: deploy storybook
         uses: JamesIves/github-pages-deploy-action@v4
