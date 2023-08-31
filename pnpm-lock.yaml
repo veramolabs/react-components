@@ -1,7 +1,7 @@
 lockfileVersion: '6.0'
 
 settings:
-  autoInstallPeers: true
+  autoInstallPeers: false
   excludeLinksFromLockfile: false
 
 devDependencies:
@@ -49,7 +49,7 @@ devDependencies:
     version: 6.5.16(react-dom@18.2.0)(react@18.2.0)
   '@storybook/addon-essentials':
     specifier: ^6.5.16
-    version: 6.5.16(@babel/core@7.21.3)(@storybook/builder-webpack5@6.5.16)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)(webpack@5.76.1)
+    version: 6.5.16(@babel/core@7.21.3)(@storybook/builder-webpack5@6.5.16)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
   '@storybook/addon-interactions':
     specifier: ^6.5.16
     version: 6.5.16(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
@@ -64,7 +64,7 @@ devDependencies:
     version: 6.5.16(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
   '@storybook/react':
     specifier: ^6.5.16
-    version: 6.5.16(@babel/core@7.21.3)(@storybook/builder-webpack5@6.5.16)(@storybook/manager-webpack5@6.5.16)(react-dom@18.2.0)(react@18.2.0)(require-from-string@2.0.2)(typescript@4.9.5)
+    version: 6.5.16(@babel/core@7.21.3)(@storybook/builder-webpack5@6.5.16)(@storybook/manager-webpack5@6.5.16)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
   '@storybook/testing-library':
     specifier: ^0.0.13
     version: 0.0.13(react-dom@18.2.0)(react@18.2.0)
@@ -2731,7 +2731,7 @@ packages:
       - webpack-command
     dev: true
 
-  /@storybook/addon-docs@6.5.16(@babel/core@7.21.3)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)(webpack@5.76.1):
+  /@storybook/addon-docs@6.5.16(@babel/core@7.21.3)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
     resolution: {integrity: sha512-QM9WDZG9P02UvbzLu947a8ZngOrQeAKAT8jCibQFM/+RJ39xBlfm8rm+cQy3dm94wgtjmVkA3mKGOV/yrrsddg==}
     peerDependencies:
       '@storybook/mdx2-csf': ^0.0.3
@@ -2786,7 +2786,7 @@ packages:
       - webpack-command
     dev: true
 
-  /@storybook/addon-essentials@6.5.16(@babel/core@7.21.3)(@storybook/builder-webpack5@6.5.16)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)(webpack@5.76.1):
+  /@storybook/addon-essentials@6.5.16(@babel/core@7.21.3)(@storybook/builder-webpack5@6.5.16)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
     resolution: {integrity: sha512-TeoMr6tEit4Pe91GH6f8g/oar1P4M0JL9S6oMcFxxrhhtOGO7XkWD5EnfyCx272Ok2VYfE58FNBTGPNBVIqYKQ==}
     peerDependencies:
       '@babel/core': ^7.9.6
@@ -2847,7 +2847,7 @@ packages:
       '@storybook/addon-actions': 6.5.16(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-backgrounds': 6.5.16(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-controls': 6.5.16(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
-      '@storybook/addon-docs': 6.5.16(@babel/core@7.21.3)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)(webpack@5.76.1)
+      '@storybook/addon-docs': 6.5.16(@babel/core@7.21.3)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@storybook/addon-measure': 6.5.16(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-outline': 6.5.16(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-toolbars': 6.5.16(react-dom@18.2.0)(react@18.2.0)
@@ -2862,7 +2862,6 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
       regenerator-runtime: 0.13.11
       ts-dedent: 2.2.0
-      webpack: 5.76.1
     transitivePeerDependencies:
       - '@storybook/mdx2-csf'
       - eslint
@@ -3822,7 +3821,7 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/react@6.5.16(@babel/core@7.21.3)(@storybook/builder-webpack5@6.5.16)(@storybook/manager-webpack5@6.5.16)(react-dom@18.2.0)(react@18.2.0)(require-from-string@2.0.2)(typescript@4.9.5):
+  /@storybook/react@6.5.16(@babel/core@7.21.3)(@storybook/builder-webpack5@6.5.16)(@storybook/manager-webpack5@6.5.16)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
     resolution: {integrity: sha512-cBtNlOzf/MySpNLBK22lJ8wFU22HnfTB2xJyBk7W7Zi71Lm7Uxkhv1Pz8HdiQndJ0SlsAAQOWjQYsSZsGkZIaA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
@@ -3887,7 +3886,6 @@ packages:
       react-refresh: 0.11.0
       read-pkg-up: 7.0.1
       regenerator-runtime: 0.13.11
-      require-from-string: 2.0.2
       ts-dedent: 2.2.0
       typescript: 4.9.5
       util-deprecate: 1.0.2
@@ -12469,11 +12467,6 @@ packages:
 
   /require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
-    engines: {node: '>=0.10.0'}
-    dev: true
-
-  /require-from-string@2.0.2:
-    resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
     dev: true
 
