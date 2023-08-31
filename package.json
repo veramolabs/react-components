@@ -53,7 +53,7 @@
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.4.2",
     "@types/react": "^18.0.28",
-    "@veramo/core": "^4.3.0",
+    "@veramo/core": "^5.4.1",
     "babel-jest": "^29.5.0",
     "babel-loader": "^8.3.0",
     "identity-obj-proxy": "^3.0.0",
